@@ -17,9 +17,14 @@ export const Modal = ({ product, onClose }: Props) => {
       removeEventListener('keydown', handlerKeyDown);
     };
   }, [onClose]);
+  const onCloseHandler = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
   return (
-    <div onClick={onClose} className={css.backdrop}>
-      <div className={css.modal} onClick={e => e.stopPropagation()}>
+    <div onClick={onCloseHandler} className={css.backdrop}>
+      <div className={css.modal}>
         <button onClick={onClose} className={css.closeBtn}>
           close
         </button>

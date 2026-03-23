@@ -1,5 +1,5 @@
 import axios from 'axios';
-import type { ProductType } from '../types/ProductType';
+import type { ProductType } from '../types/productType';
 
 // axios queries
 interface fetchProductsParams {
