@@ -1,7 +1,8 @@
 import { useId } from 'react';
-import css from './searchForm.module.css';
+
 import { useDebouncedCallback } from 'use-debounce';
 import { useState } from 'react';
+import { Form, Input } from './SearchList.styled';
 interface Props {
   searchQuery: (item: string) => void;
 }
@@ -14,10 +15,9 @@ export const SearchForm = ({ searchQuery }: Props) => {
 
   const id = useId();
   return (
-    <form className={css.form}>
+    <Form>
       <label htmlFor={`search-${id}`}>Search</label>
-      <input
-        className={css.searchInput}
+      <Input
         id={`search-${id}`}
         name="search"
         type="text"
@@ -26,6 +26,6 @@ export const SearchForm = ({ searchQuery }: Props) => {
           debounced(e.target.value);
         }}
       />
-    </form>
+    </Form>
   );
 };

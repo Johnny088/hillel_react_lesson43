@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import type { ProductType } from '../../types/productType';
-import css from './modal.module.css';
+import { ContainerDiv, ModalDiv, Button, Image } from './Modal.styled';
 interface Props {
   product: ProductType;
   onClose: () => void;
@@ -23,16 +23,14 @@ export const Modal = ({ product, onClose }: Props) => {
     }
   };
   return (
-    <div onClick={onCloseHandler} className={css.backdrop}>
-      <div className={css.modal}>
-        <button onClick={onClose} className={css.closeBtn}>
-          close
-        </button>
-        <img src={product.images[0]} alt="photo" className={css.image} />
+    <ContainerDiv onClick={onCloseHandler}>
+      <ModalDiv>
+        <Button onClick={onClose}>close</Button>
+        <Image src={product.images[0]} alt="photo" />
         <p>{product.title}</p>
         <p>{product.description}</p>
         <p>${product.price}</p>
-      </div>
-    </div>
+      </ModalDiv>
+    </ContainerDiv>
   );
 };

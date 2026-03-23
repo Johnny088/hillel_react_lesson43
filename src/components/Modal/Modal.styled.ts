@@ -1,4 +1,6 @@
-.backdrop {
+import styled from '@emotion/styled';
+
+export const ContainerDiv = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -7,8 +9,9 @@
   display: flex;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.8);
-}
-.modal {
+`;
+
+export const ModalDiv = styled.div`
   margin-top: 60px;
   width: 60vw;
   min-width: 400px;
@@ -21,12 +24,12 @@
   text-align: center;
   background-color: rgba(72, 77, 102, 0.9);
   color: white;
-}
-.image {
+`;
+export const Image = styled.img`
   width: 300px;
   height: 300px;
-}
-.closeBtn {
+`;
+export const Button = styled.button`
   position: absolute;
   top: 10px;
   right: 10px;
@@ -36,8 +39,7 @@
   background-color: rgb(196, 36, 36);
   transition: transform 0.3s ease-in-out;
   color: white;
-  z-index: 100;
-}
-.closeBtn:hover {
-  transform: scale(1.2);
-}
+  &:hover {
+    transform: scale(1.2);
+  }
+`;

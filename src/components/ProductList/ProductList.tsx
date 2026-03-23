@@ -1,6 +1,7 @@
 import type { ProductType } from '../../types/productType';
 import { ProductCard } from '../ProductCard/ProductCard';
-import css from './productList.module.css';
+
+import { Li, Ul } from './ProductList.styled';
 interface Props {
   products: ProductType[];
   onModalOpen: (product: ProductType) => void;
@@ -8,12 +9,12 @@ interface Props {
 export const ProductList = ({ products, onModalOpen }: Props) => {
   const reviewHandler = () => {};
   return (
-    <ul className={css.container}>
+    <Ul>
       {products.map(product => (
-        <li onClick={reviewHandler} key={product.id} className={css.cardBox}>
+        <Li onClick={reviewHandler} key={product.id}>
           <ProductCard item={product} onModalOpen={onModalOpen} />
-        </li>
+        </Li>
       ))}
-    </ul>
+    </Ul>
   );
 };
