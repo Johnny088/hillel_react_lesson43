@@ -5,8 +5,10 @@ interface Props {
   searchQuery: (item: string) => void;
 }
 export const SearchForm = ({ searchQuery }: Props) => {
-  const debounced = useDebouncedCallback(value => {
-    if (value.trim() !== '') {
+  const debounced = useDebouncedCallback((value: string) => {
+    if (value.trim() === '' && value.length > 0) {
+      return;
+    } else {
       searchQuery(value);
     }
   }, 500);
